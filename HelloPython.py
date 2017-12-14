@@ -45,4 +45,6 @@ help(input)
 #Python可以在同一行中使用多条语句，语句之间使用分号(;)分割，以下是一个简单的实例：
 #!/usr/bin/python3
 
-import sys; x = 'runoob'; sys.stdout.write(x + '\n')
+x = 'runoob'; sys.stdout.write(x + '\n')
+
+#尝试VS code 进行github链接
