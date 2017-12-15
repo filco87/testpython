@@ -1,7 +1,7 @@
 import sys
 import io
 # encoding: utf-8
-sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
+# sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
 print("Hello Python!")
 
 if True:
@@ -34,12 +34,12 @@ paragraph = """这是一个段落，
 
 print(word)
 #input()
-help(input)
+#help(input)
 #等待用户输入
 #执行下面的程序在按回车键后就会等待用户输入：
 #!/usr/bin/python3
 #input("enter")
-#x = input("\n\n按下 enter 键后退出。")
+#input("\n\n按下 enter 键后退出。")
 #以上代码中 ，"\n\n"在结果输出前会输出两个新的空行。一旦用户按下键时，程序将退出。
 #同一行显示多条语句
 #Python可以在同一行中使用多条语句，语句之间使用分号(;)分割，以下是一个简单的实例：
