@@ -48,3 +48,10 @@ print(word)
 x = 'runoob'; sys.stdout.write(x + '\n')
 
 #尝试VS code 进行github链接
+
+
+#print(names.contents[0])
+#res = urllib.request.urlopen("http://www.douyu.com/pigff")
+#res = urllib.request.urlopen("https://www.baidu.com")
+#print(res.read())
+#print(res.status)
