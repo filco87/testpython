@@ -21,3 +21,6 @@ for child in div:
     print(child.find("span", {"class": "common_w-card_views-num"}).contents[0])
     print(child.find("p", {"class": "common_w-card_title"}).contents[0])
     print(child.find("span", {"class": "common_w-card_host-name"}).contents[0])
+
+myDriver.close()
+myDriver.quit()
