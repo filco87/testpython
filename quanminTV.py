@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-from bs4 import BeautifulSoup as bs
 import urllib.request
 import ssl
+import MySQLdb
+from bs4 import BeautifulSoup as bs
 from selenium import webdriver
 #ssl._create_default_https_context = ssl._create_unverified_context
 #browser = webdriver.chromedriver()
@@ -25,3 +26,4 @@ for child in div:
 
 myDriver.close()
 myDriver.quit()
+
