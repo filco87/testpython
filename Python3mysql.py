@@ -4,7 +4,7 @@ import os
 import configparser
 import date
  
-CONFIG_FILE = "dbconfig.cfg"
+CONFIG_FILE = "config.cfg"
 
 #def main():
 print(os.path.join(os.getcwd(), CONFIG_FILE))
