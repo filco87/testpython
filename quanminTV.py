@@ -1,15 +1,20 @@
 #!/usr/bin/python3
 import urllib.request
 import ssl
-import MySQLdb
+# import MySQLdb
 from bs4 import BeautifulSoup as bs
 from selenium import webdriver
+from pyvirtualdisplay import Display
 #ssl._create_default_https_context = ssl._create_unverified_context
-#browser = webdriver.chromedriver()
 
-#myDriver = webdriver.Firefox()
-myDriver = webdriver.Chrome()
-#myDriver.get("https://www.douyu.com/kpl")
+#display = Display(visible=0, size=(800, 800))
+#display.start()
+
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('headless')
+chrome_options.add_argument('no-sandbox')
+myDriver = webdriver.Chrome(chrome_options=chrome_options)
 myDriver.get("https://www.quanmin.tv/game/juediqiusheng")
 
 #房间名 房间号 主播名 主播号 人气值 印象标签 房间链接 房间封面
@@ -26,4 +31,4 @@ for child in div:
 
 myDriver.close()
 myDriver.quit()
-
+#display.stop()
