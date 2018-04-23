@@ -17,11 +17,13 @@ if os.path.exists(os.path.join(os.getcwd(), CONFIG_FILE)):
     dbname = config.get("DB_Config", "DATABASE_NAME")
     username = config.get("DB_Config", "DATABASE_USERNAME")
     password = config.get("DB_Config", "DATABASE_PASSWORD")
+    charset = config.get("DB_Config", "DATABASE_CHARSET")
+   
     #print(host, port, dbname, username, password)
 
 
 conn = pymysql.connect(host=host, port=int(port),
-                       user=username, charset='utf8', passwd=password, db=dbname)
+                       user=username, charset=charset, passwd=password, db=dbname)
 cursor = conn.cursor()
 cursor.execute("SELECT VERSION()")
 row = cursor.fetchone()
