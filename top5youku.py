@@ -19,7 +19,7 @@ chrome_options.add_argument('headless')
 chrome_options.add_argument('no-sandbox')
 myDriver = webdriver.Chrome(chrome_options=chrome_options)
 myDriver.get("http://top.youku.com/rank/detail/?m=85&type=1")
-
+myDriver.implicitly_wait(10)
 #房间名 房间号 主播名 主播号 人气值 印象标签 房间链接 房间封面
 #while True:
 soup = bs(myDriver.page_source, "lxml")
@@ -27,7 +27,7 @@ soup = bs(myDriver.page_source, "lxml")
 #names = soup.find_all("span", {"class": "common_w-card_views-num"})
 div = soup.find("div", {"class": "exp-left"})
 print(div)
-div1 = div.find_all("dl")
+div1 = div.find_all("dl", limit=5)
 #div = soup.find_all("div", {"class": "exp-left"})
 #print(div1)
 
@@ -40,27 +40,22 @@ for child in div1:
     content = title
     cover_pic = child.img['src']
     rank = i
-    ol = child.find("dd", {"class": "detail"}).find_all("a")[1]
-    # # # #  memo1 = child.find("em", {"class": "mr15"}).contents[0]
-    # # # ctime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-    print(link)
-    print(title)
-    print(paltform)
-    print(type)
-    print(cover_pic)
-    print(ol)
+    ol = child.find_all("dd", {"class": "detail"})[1].find("a").contents[0]
+    memo1 = ''
+    ctime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+    database.query_dic({
+         'insert': 'popular_zy_top5',
+         'domain_array': [
+             'title', 'link', 'paltform', 'type', 'content', 'cover_pic', 'rank', 'ol', 'memo1', 'ctime'
+         ],
+         'value_array': [
+             title, link, paltform, type, content, cover_pic, rank, ol, memo1, ctime
+         ]
+     })
     i = i + 1
     if i >= 6:
         break
-    #  database.query_dic({
-    #      'insert': 'popular_zy_top5',
-    #      'domain_array': [
-    #          'title', 'link', 'paltform', 'type', 'content', 'cover_pic', 'rank', 'ol', 'memo1', 'ctime'
-    #      ],
-    #      'value_array': [
-    #          title, link, paltform, type, content, cover_pic, rank, ol, memo1, ctime
-    #      ]
-    #  })
+    
     #print(child.a['href'])
     #  print(child.a['title'])
     #  print(child.h3.string)
