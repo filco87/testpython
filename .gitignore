@@ -2,3 +2,4 @@ dbconfig.cfg
 config.cfg
 .vscode/*
 db.py
+readme1.md
