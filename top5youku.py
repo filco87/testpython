@@ -13,11 +13,12 @@ ssl._create_default_https_context = ssl._create_unverified_context
 #display = Display(visible=0, size=(800, 800))
 #display.start()
 
-
+path = "/usr/local/bin/chromedriver"
+#path = "C:\\chromedriver\\chromedriver.exe"
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('headless')
 chrome_options.add_argument('no-sandbox')
-myDriver = webdriver.Chrome(chrome_options=chrome_options)
+myDriver = webdriver.Chrome(path,chrome_options=chrome_options)
 myDriver.get("http://top.youku.com/rank/detail/?m=85&type=1")
 myDriver.implicitly_wait(10)
 #房间名 房间号 主播名 主播号 人气值 印象标签 房间链接 房间封面
@@ -26,7 +27,7 @@ soup = bs(myDriver.page_source, "lxml")
 
 #names = soup.find_all("span", {"class": "common_w-card_views-num"})
 div = soup.find("div", {"class": "exp-left"})
-print(div)
+#print(div)
 div1 = div.find_all("dl", limit=5)
 #div = soup.find_all("div", {"class": "exp-left"})
 #print(div1)
