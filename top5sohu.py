@@ -20,6 +20,7 @@ chrome_options.add_argument('headless')
 chrome_options.add_argument('no-sandbox')
 myDriver = webdriver.Chrome(path,chrome_options=chrome_options)
 myDriver.get("http://tv.sohu.com/hotshow/")
+time.sleep(5)
 
 #房间名 房间号 主播名 主播号 人气值 印象标签 房间链接 房间封面
 #while True:

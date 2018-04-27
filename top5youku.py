@@ -18,9 +18,10 @@ path = "/usr/local/bin/chromedriver"
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('headless')
 chrome_options.add_argument('no-sandbox')
-myDriver = webdriver.Chrome(path,chrome_options=chrome_options)
+myDriver = webdriver.Chrome(path, chrome_options=chrome_options)
 myDriver.get("http://top.youku.com/rank/detail/?m=85&type=1")
 myDriver.implicitly_wait(10)
+time.sleep(5)
 #房间名 房间号 主播名 主播号 人气值 印象标签 房间链接 房间封面
 #while True:
 soup = bs(myDriver.page_source, "lxml")

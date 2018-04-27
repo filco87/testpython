@@ -9,9 +9,12 @@ from pyvirtualdisplay import Display
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('headless')
 chrome_options.add_argument('no-sandbox')
+chrome_options.add_argument(
+    'User-Agent:Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;Maxthon2.0)')
 myDriver = webdriver.Chrome(chrome_options=chrome_options)
 myDriver.get("https://weibo.com/?category=99991")
 myDriver.implicitly_wait(10)
+#time.sleep(5)
 #房间名 房间号 主播名 主播号 人气值 印象标签 房间链接 房间封面
 #while True:
 soup = bs(myDriver.page_source, "html5lib")
