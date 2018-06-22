@@ -40,7 +40,8 @@ for child in div:
      content = child.h3.string
      cover_pic = child.img['src']
      rank = i
-     ol = child.find("em", {"class": ""}).contents[0]
+     #ol = child.find("em", {"class": ""}).contents[0]
+     ol=""
      memo1 = child.find("em", {"class": "mr15"}).contents[0]
      ctime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
 

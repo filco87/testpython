@@ -18,6 +18,7 @@ path = "/usr/local/bin/chromedriver"
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('headless')
 chrome_options.add_argument('no-sandbox')
+#chrome_options.add_argument('user-agent="Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1"')
 myDriver = webdriver.Chrome(path, chrome_options=chrome_options)
 myDriver.get("https://v.qq.com/x/hotlist/search/?channel=10001")
 time.sleep(5)
